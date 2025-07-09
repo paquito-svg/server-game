@@ -1,9 +1,10 @@
 const WebSocket = require('ws');
 
-// Crea el servidor WebSocket en el puerto 8000
+const server = http.createServer();  // Railway detecta este servidor
 
-const wss = new WebSocket.Server({ port: 8000 });
-console.log('Servidor WebSocket escuchando en el puerto 8000');
+const wss = new WebSocket.Server({ server });
+
+const port = process.env.PORT || 8000;
 
 wss.on('connection', (ws) => {
     console.log('Nuevo cliente conectado.');
